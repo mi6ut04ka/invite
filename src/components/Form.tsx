@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../style/style-form.css';
+import '../style/style-modal.css'
 
 interface IProps {
     names: string[],
@@ -7,29 +8,80 @@ interface IProps {
 }
 
 const FormSection: React.FC<IProps> = ({ names, id }) => {
+    const [showModal, setShowModal] = useState(true);
+    const [disableCheckboxes, setDisableCheckboxes] = useState(false);
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.currentTarget);
+
+        try {
+            const response = await fetch('save_form.php', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                setShowModal(true);
+            } else {
+                console.error('Error submitting form');
+            }
+        } catch (error) {
+            console.error('Error submitting form', error);
+        }
+    };
+    const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const isChecked = event.target.checked;
+        const value = event.target.value;
+
+        if (value === 'Нас не будет') {
+            setDisableCheckboxes(isChecked);
+        }
+    };
+
+
+    if (!names.length || !id) {
+        return null; // Возвращаем null, если данные отсутствуют
+    }
+
     return (
         <section className="form">
-            <form action="submit.php" method="post">
+            <form onSubmit={handleSubmit}>
                 <input type="hidden" name="id" value={id} />
+                {names.map((name, index) => (
+                    <input type="hidden" name="names[]" value={name} key={index} />
+                ))}
                 <img src='/img/QUESTIONNAIRE.svg' alt='title' className="form-title" />
                 <div className="form-subtitle">АНКЕТА ГОСТЯ</div>
                 <div className="form-questions-block">
                     <div className="form-question">
                         <div className="form-question-wrapper">
                             <div className="form-question-number">01.</div>
-                            <div className="form-question-question">СМОЖЕТЕ ЛИ ВЫ ПРИСТУТСТВОВАТЬ НА НАШЕМ ТОРЖЕСТВЕ?
+                            <div className="form-question-question">СМОЖЕТЕ ЛИ ВЫ ПРИСУТСТВОВАТЬ НА НАШЕМ ТОРЖЕСТВЕ?
                                 <span><br />(Поставьте галочку напротив имен гостей, которые смогут разделить с нами наш праздник)</span></div>
                         </div>
                         <div className="form-questions-answers-block">
-                            {names.map((name, index) => (
-                                <div className="form-question-answers" key={index}>
-                                    <input type="checkbox" name="guests[]" value={name} />
-                                    <div className="form-question-answers-name">{name}</div>
-                                </div>
-                            ))}
-                            <div className="form-question-answers">
-                                <input type="checkbox" name="guests[]" value="Нас не будет" />
-                                <div className="form-question-answers-name">Нас не будет</div>
+                        {names.map((name, index) => (
+                        <div className="form-question-answers" key={index}>
+                            <input
+                                type="checkbox"
+                                name="guests[]"
+                                value={name}
+                                onChange={handleCheckboxChange}
+                                disabled={disableCheckboxes}
+                            />
+                            <div className="form-question-answers-name">{name}</div>
+                        </div>
+                    ))}
+                    <div className="form-question-answers">
+                        <input
+                            type="checkbox"
+                            name="guests[]"
+                            value="Нас не будет"
+                            onChange={handleCheckboxChange}
+                        />
+                        <div className="form-question-answers-name">Нас не будет</div>
                             </div>
                         </div>
                         <div className="form-question-descr">
@@ -44,11 +96,11 @@ const FormSection: React.FC<IProps> = ({ names, id }) => {
                         </div>
                         <div className="form-questions-answers-block">
                             <div className="form-question-answers">
-                                <input type="checkbox" name="transfer" value="Да" />
+                                <input type="radio" name="transfer" value="Да" />
                                 <div className="form-question-answers-name">Да</div>
                             </div>
                             <div className="form-question-answers">
-                                <input type="checkbox" name="transfer" value="Нет" />
+                                <input type="radio" name="transfer" value="Нет" />
                                 <div className="form-question-answers-name">Нет</div>
                             </div>
                         </div>
@@ -84,9 +136,20 @@ const FormSection: React.FC<IProps> = ({ names, id }) => {
                         </div>
                     </div>
 
-                    <button type='submit' className='form-button'>Отправить</button>
+                    <div className="form-button-block">
+                        <button type='submit' className='form-button'>Отправить</button>
+                    </div>
                 </div>
             </form>
+
+            {showModal && (
+                <div className="modal">
+                    <div className="modal-content">
+                    <span className="close-button" onClick={() => setShowModal(false)}>&times;</span>
+                        <p>Благодарим за ответы!</p>
+                    </div>
+                </div>
+            )}
         </section>
     );
 }

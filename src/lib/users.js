@@ -1,4 +1,4 @@
-const users = [
+export const usersData = [
     { names: ['Мама', 'папа', 'Владислав'], id: 'c7af815e-84d5-4f51-b9b0-8c330edf91b3' },
     { names: ['Мама', 'папа', 'Антон'], id: 'e129094f-45a5-4424-b844-48479d61e72c' },
     { names: ['Наиля', 'Алексей'], id: 'e4889f8f-e772-41f0-815d-9aec6d2e934c' },
@@ -33,29 +33,4 @@ const users = [
     { names: ['Юрий', 'Лия'], id: 'ea206abc-997c-421b-a571-7427e9555671' },
     { names: ['Денис', 'Татьяна'], id: 'ac317769-21e9-4e81-ad2e-7a4a161b2618' },
     { names: ['Юлия'], id: '0eb5acc3-d3ee-4642-a796-1a6cf12069e0'}
-]
-document.addEventListener('DOMContentLoaded', function() {
-    const urlPath = window.location.pathname;
-    const segments = urlPath.split('/');
-    const userId = segments[segments.length - 1];
-    console.log(urlPath, segments, userId)
-    
-    if (userId) {
-        const user = users.find(user => user.id === userId);
-        if (user) {
-            const names = user.names.join(', ');
-            const messageTitle = document.querySelector('.message-title');
-            const messageName = document.querySelector('.message-name');
-            const messageMessage = document.querySelector('.message-message');
-            
-            messageTitle.innerText = 'ДОРОГИЕ И ЛЮБИМЫЕ';
-            messageName.innerText = names;
-            messageMessage.innerText = 'Приглашаем Вас разделить с нами важный и значимый день нашей жизни - создание нашей семьи!';
-        } else {
-            console.error('User not found');
-        }
-    } else {
-        console.error('User ID not provided in the URL');
-    }
-});
-
+  ]

@@ -11,6 +11,7 @@
     font-size: 16px;
     margin: 0 auto;
     text-align: center;
+    z-index: 3;
 }
 .dress-descr span{
     font-family: 'Montserrat', sans-serif;
@@ -24,6 +25,7 @@
     justify-content: space-around;
     margin-top: 30px;
     width: 100%;
+    z-index: 3;
 }
 .dress-color{
     width: 30px;
@@ -38,13 +40,12 @@
 .dress-color-6{background-color: #F7F2DF;}
 .dress-photos{
     display: grid;
-    width: 100%;
+    width: 80%;
     grid-template-columns: repeat(4, auto);
     grid-template-rows: repeat(2, auto);
     align-items: center;
     gap: 5px;
     margin: 32px auto 0 auto;
-    height: 180px;
     z-index: 3;
 }
 .dress-photos img{
@@ -82,6 +83,7 @@
     font-size: 14px;
     font-weight: 300;
     width: 89%;
+    z-index: 3;
 }
 .dress-divider{
     width: 100%;
