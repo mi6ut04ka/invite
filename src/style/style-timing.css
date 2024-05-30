@@ -1,0 +1,126 @@
+.timing{
+    padding: 40px 8px;
+    background-color: #DEE5CE;
+    border-radius:20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.timing-title-block{
+    width: 100%;
+    position: relative;
+}
+.timing-title{
+    width: 100%;
+}
+.timing-subtitle{
+    color: #404040;
+    border-radius: 15px;
+    background-color: #FBFFF3;
+    font-size: 22px;
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute;
+    bottom:0;
+    left: 50%;
+    transform: translate(-50%,0);
+    padding: 0 12px;
+    white-space: nowrap;
+}
+.timing-wrapper{
+    background: linear-gradient(to right, rgba(256,256,256, 0.8), rgba(256,256,256, 0.2));
+    padding: 30px 21px;
+    border-radius: 20px;
+    margin-top: 40px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+}
+.timing-wrapper::before{
+    content: '';
+    position: absolute;
+    filter: blur(4px);
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.timing-block{
+    display: grid;
+    grid-template-columns: 70px 20px auto;
+    grid-template-rows: auto;
+    gap:15px;
+    margin-bottom: 40px;
+    position: relative; 
+    z-index: 2;
+}
+.timing-block::before {
+    content: '';
+    position: absolute;
+    left: 93px;
+    top: 0;
+    bottom: 0;
+    height: calc(100% + 40px);
+    width: 1px;
+    background-color: #AEB88D;
+    z-index: 1;
+}
+.timing-block-last{
+    display: grid;
+    grid-template-columns: 70px 20px auto;
+    grid-template-rows: auto;
+    gap:15px;
+    position: relative; 
+    z-index: 2;
+}
+.timing-time{
+    font-size: 20px;
+    font-weight: 500;
+    color: #404040;
+    display: flex;
+    justify-content: end;
+}
+.timing-block-dot{
+    border-radius: 50%;
+    border: 1px solid transparent;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    border-bottom-color: #AEB88D;
+    border-left-color: #AEB88D;
+    transform: rotate(45deg);
+    position: relative;
+    z-index: 3;
+    background-color: #F1F4E9;
+}
+.timing-block-dot-right{
+    transform: rotate(225deg);
+}
+
+.timing-dot{
+    width: 11px;
+    height: 11px;
+    background-color: #AEB88D;
+    border-radius: 50%;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.timing-info{
+    display: flex;
+    flex-direction: column;
+}
+.timing-time-title{
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.timing-time-spot{
+    font-size: 12px;
+    font-weight: 300;
+    font-family: "Montserrat", sans-serif;
+}

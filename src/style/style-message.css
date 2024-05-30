@@ -1,0 +1,97 @@
+.message{
+    background-color: #DEE5CE;
+    padding: 113px 10px 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.message-wrapper{
+    border-radius: 20px;
+    background: linear-gradient(to right, rgba(256,256,256, 0.8), rgba(256,256,256, 0.2));
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 720px;
+    margin: 0 auto;
+    flex-grow: 1;
+    z-index: 3;
+}
+.message-save{
+    color: #FBFFF3;
+    font-size: 36px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 30px 0 40px;
+    font-weight: 500;
+    position: relative;
+    
+}
+.message-save-text{
+    z-index: 3;
+    position: relative;
+    background-color: #DEE5CE;
+    border-radius: 20px;
+}
+.message-descr{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    text-align: center;
+}
+.message-title{
+    margin-top: 21px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 500;
+    text-align: justify;
+}
+.message-name{
+    margin-top: 11px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+.message-message{
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+.message-date{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 30px;
+    margin-top: 30px;
+}
+.message-date-date{
+    font-weight: 500;
+}
+
+.message-date-divider{
+    width: 1px;
+    height: 25px;
+    background-color: #000;
+}
+.message-day{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    margin-top: 30px;
+    font-weight: 400;
+}
+.message-divider{
+    position: absolute;
+    bottom:0px;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background-color: #EBEFE0;
+    z-index: 1;
+}

@@ -1,0 +1,102 @@
+.dress{
+    padding: 0 45px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.dress-descr{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0 auto;
+    text-align: center;
+}
+.dress-descr span{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+}
+.dress-color-block{
+    display: flex;
+    gap:17px;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 30px;
+    width: 100%;
+}
+.dress-color{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.dress-color-1{background-color: #AEB88D;}
+.dress-color-2{background-color: #D8B8BB;}
+.dress-color-3{background-color: #E9DAC6;}
+.dress-color-4{background-color: #DEE5CE;}
+.dress-color-5{background-color: #DCE8F4;}
+.dress-color-6{background-color: #F7F2DF;}
+.dress-photos{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(2, auto);
+    align-items: center;
+    gap: 5px;
+    margin: 32px auto 0 auto;
+    height: 180px;
+    z-index: 3;
+}
+.dress-photos img{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.dress-photo-1{
+    grid-row: 1/3;
+    width: 73px;
+}
+.dress-photo-6{
+    grid-column: 3/5;
+}
+.dress-info-block{
+    display: flex;
+    gap:5px;
+    align-items: center;
+    margin: 30px auto 0 auto;
+}
+.dress-sign{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #AEB88D;
+    color: #fff;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dress-info-text{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    width: 89%;
+}
+.dress-divider{
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, white, #AEB88D, white);
+    margin-top: 30px;
+}
+.dress-subtitle{
+    position: absolute;
+    right: 0;
+    top:50%;
+    transform: translateY(-50%);
+    height: 100%;
+    z-index: 1;
+}
+.dress-subtitle img{
+    height: 100%;
+}
